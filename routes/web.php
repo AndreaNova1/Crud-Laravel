@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //rutas utilizadas para la paginas principal y el form
-Route::get('/', function () {
-    return view('usuarios.listar');
-});
 
+//Listado de usuarios
+Route::get('/', 'UserController@listar');
 //formulario usuarios
 Route::get('/form','UserController@userform');
 //Guardar usuarios
