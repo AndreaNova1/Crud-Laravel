@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 //rutas utilizadas para la paginas principal y el form
 
-//Listado de usuarios
+//Listado de Usuarios
 Route::get('/', 'UserController@listar');
-//formulario usuarios
+//Formulario de Usuarios
 Route::get('/form','UserController@userform');
-//Guardar usuarios
+//Guardar Usuarios
 Route::post('/save','UserController@save')->name('save');
-//Eliminar usuarios
+//Eliminar Usuarios
 Route::delete('/delete/{id}','UserController@delete')->name('delete');
+//Formulario para editar usuarios
+Route::get('/editform/{id}','UserController@editform')->name('editform');
+//Edicion de usuarios
+Route::patch('/edit/{id}','UserController@edit')->name('edit');

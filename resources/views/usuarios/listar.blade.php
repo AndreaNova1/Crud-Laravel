@@ -2,7 +2,7 @@
 <div class="Container mt-5">
     <div  class="row justify-content-center">
         <div class="col-md-10">
-            <h2 class="text-center mb-5">Usuarios admin</h2>
+            <h2 class="text-center mb-5">Usuarios</h2>
             <a class="btn btn-success mb-4" href="{{url('/form')}}">Agregar usuarios</a>
             <!-- Mensaje Flash -->
             @if(session('usuarioEliminado'))
@@ -25,6 +25,11 @@
                             <td>{{ $user->nombre }}</td>
                             <td>{{ $user->email }}</td>
                                 <td>
+
+                                <a href="{{route ('editform', $user->id) }}" class="btn btn-primary mb-1">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+
                                 <form action="{{ route('delete', $user->id) }}" method="POST">
                                 @csrf @method('DELETE')
                                 <button type="submit" onclick="return confirm('¿Desea Borrar al Usuario?')" class="btn btn-danger">
