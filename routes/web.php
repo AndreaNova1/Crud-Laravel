@@ -26,3 +26,5 @@ Route::delete('/delete/{id}','UserController@delete')->name('delete');
 Route::get('/editform/{id}','UserController@editform')->name('editform');
 //Edicion de usuarios
 Route::patch('/edit/{id}','UserController@edit')->name('edit');
+//Formulario de rutas
+Route::resource('rol', 'RolController@rol');
