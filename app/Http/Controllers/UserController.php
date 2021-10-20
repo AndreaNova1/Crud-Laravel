@@ -14,12 +14,14 @@ class UserController extends Controller
 
         return view('usuarios.listar', $data);
     }
+    
+/** Formulario de usuario */
+public function userform(){
 
-    //Formulario de Usuario
-    public function userform(){
-        return view('usuarios.userform');
-    }
+    $rol=Rol::all();
 
+    return view('usuarios.userform', compact('rol'));
+}
     //Guardar Usuarios
     public function save(Request $request){
 
