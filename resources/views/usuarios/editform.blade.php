@@ -27,7 +27,7 @@
 
                     <div class="card-body">
                         <div class="row form-group">
-                            <label for="" class="col-2">Nombre</label>
+                            <label for="" class="col-2">Ingresa tu Nombre</label>
                             <input type="text" name="nombre" class="form-control col-md-9" value="{{ $usuario->nombre }}">
                         </div>
 
