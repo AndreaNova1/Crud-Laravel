@@ -1,5 +1,4 @@
 @extends('layouts.base')
-//aca se muestran todas las consultas, es la vista
 <div class="Container mt-5">
     <div  class="row justify-content-center">
         <div class="col-md-10">
