@@ -27,9 +27,8 @@
 
                     <div class="card-body">
                         <div class="row form-group">
-                            <label for="" class="col-2">Ingresa tu Nombre</label>
-                            <label for="" class="col-2">Ingresa tu Nombre mod</label>
-                            <input type="text" name="nombre" class="form-control col-md-9" value="{{ $usuario->nombre }}">
+                            <label for="" class="col-4">Ingresa tu Nombre</label>
+                            <input type="text" name="nombre" class="form-control col-md-7" value="{{ $usuario->nombre }}">
                         </div>
 
                         <div class="row form-group">
@@ -37,21 +36,22 @@
                             <input type="text" name="email" class="form-control col-md-9" value="{{ $usuario->email }}">
                         </div>
 
+                        
                         <div class="row form-group">
-                            <label for="" class="col-2">Rol</label>
-                            <select name="rol" class="form-control col-md-9" >
-                                <option value="{{ $usuario->id_rol }}">--Seleccione--</option>
+                                <label for="" class="col-2">Rol</label>
+                                <select name="rol_id" class="form-control col-md-9" >
+                                    <option value="">--Selecione--</option>
 
-                                @foreach( $rol as $roles)
-                                    <option value="{{$roles->id_rol}}"> {{$roles->descripcion}}  </option>
-                                @endforeach
-                            </select>
-                        </div>
+                                    @foreach( $rol as $roles)
+                                        <option value="{{$roles->id_rol}}"> {{$roles->descripcion}}  </option>
+                                    @endforeach
+                                </select>
+                            </div>
 
-                        <div class="row form-group">
-                            <button type="submit" class="btn btn-success col-md-9 offset-2">Modificar</button>
+                            <div class="row form-group">
+                                <button type="submit" class="btn btn-outline-success col-md-9 offset-2">Modificar</button>
 
-                        </div>
+                            </div>
 
                     </div>
 
@@ -62,6 +62,6 @@
 
     </div>
 
-    <a class="btn btn-light bt-xs mt-5" href="{{url('/')}}">&laquo volver</a>
+    <a class="btn btn-primary bt-xs mt-5" href="{{url('/')}}">&laquo volver</a>
 
 </div>

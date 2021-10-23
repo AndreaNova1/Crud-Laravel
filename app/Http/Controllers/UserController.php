@@ -61,11 +61,11 @@ class UserController extends Controller
     //Formulario Editar Usuarios
     public function editform($id){
         $usuario = Usuario::findOrFail($id);
+        $rol=Rol::all();
 
-        return view('usuarios.editform', compact('usuario'));
+        return view('usuarios.editform', compact('usuario', 'rol'));
     }
 
-    //Edicion de Usuarios
     public function edit(Request $request, $id){
         $dataUsuario = request()->except((['_token','_method']));
         Usuario::where('id', '=', $id)->update($dataUsuario);

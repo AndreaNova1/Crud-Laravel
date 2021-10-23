@@ -12,12 +12,8 @@
 
     <!-- Font-Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-<<<<<<< HEAD
     <title>Pagina</title>
     
-=======
-    <title>Document</title>
->>>>>>> d915bd8031cbe345386443f6b0dace4a732d5304
 </head>
 <body>
 
