@@ -1,5 +1,7 @@
 @extends('layouts.base')
+@section('title', 'User Update')
 
+@section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-7 mt-5">
@@ -23,7 +25,7 @@
             <div class="card">
                 <form action="{{ route('edit', $usuario->id)}}" method="POST">
                 @csrf @method('PATCH')
-                    <div class="card-header text-center">MODIFICAR USUARIO</div>
+                    <div class="card-header  text-center  p-3 mb-2 bg-info text-white">MODIFICAR USUARIO</div>
 
                     <div class="card-body">
                         <div class="row form-group">
@@ -49,7 +51,7 @@
                             </div>
 
                             <div class="row form-group">
-                                <button type="submit" class="btn btn-outline-success col-md-9 offset-2">Modificar</button>
+                                <button type="submit" class="btn btn-outline-success col-md-9 offset-2 p-3 mb-2 bg-success text-white">Modificar</button>
 
                             </div>
 
@@ -62,6 +64,5 @@
 
     </div>
 
-    <a class="btn btn-primary bt-xs mt-5" href="{{url('/')}}">&laquo volver</a>
-
+    @endsection
 </div>

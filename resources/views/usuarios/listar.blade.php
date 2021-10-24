@@ -1,21 +1,25 @@
 @extends('layouts.base')
-<div class="Container mt-5">
+
+<div class="Container mt-1">
+@section('title', 'User List')
+
+@section('content')
     <div  class="row justify-content-center">
         <div class="col-md-10">
+            
         <a href="/">
                         <br>
                         <img src="https://umgnaranjo.com/wp-content/uploads/2018/11/logo.png" width="100" height="100" class="rounded mx-auto d-block" alt="...">
                         <br>
                     </a>
             <h2 class="text-center mb-5">Usuarios</h2>
-            <a class="btn btn-success mb-4" href="{{url('/form')}}">Agregar usuarios</a>
             <!-- Mensaje Flash -->
             @if(session('usuarioEliminado'))
                 <div class="alert alert-success">
                     {{session('usuarioEliminado')}}
                 </div>
             @endif
-            <table class="table table-bordered table-striped text-center">
+            <table class="table table-bordered table-striped text-center  ">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -33,7 +37,7 @@
                         <td>
                             <div class="btn-group">
                                 <a href="{{route('editform', $user->id)}}">
-                                    <i class="fas fa-pencil-alt btn btn-primary mr-2"></i>
+                                    <i class="fas fa-pencil-alt btn btn-primary mr-5"></i>
                                 </a>
 
                                 <form action="{{ route('delete', $user->id) }}" method="POST">
@@ -48,9 +52,12 @@
                 @endforeach
 
                 </tbody>
+
             </table>
             {{ $users->links() }}
 
         </div>
     </div>
+    
+@endsection
 </div>

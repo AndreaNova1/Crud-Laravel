@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
 
-    //Lisatdo de Usuarios
+    //permite listar los usuarios
     public function listar(){
 
 
@@ -24,7 +24,7 @@ class UserController extends Controller
         return view('usuarios.listar', compact('users'));
     }
 
-    //Formulario de Usuario
+    //formulario utilizado para los usuarios
     public function userform(){
 
         $rol=Rol::all();
@@ -32,16 +32,16 @@ class UserController extends Controller
         return view('usuarios.userform', compact('rol'));
     }
 
-    //Guardar Usuarios
+    //permite guardar los datos
     public function save(Request $request){
-        /* Validamos los campos */
+        //se utiliza para dar las validaciones
         $validator = $this->validate($request, [
             'nombre'=> 'required|string|max:75',
             'email'=> 'required|string|max:45|email|unique:usuarios',
             'rol'=> 'required|string'
         ]);
 
-        /* Guardamos en la Base de datos */
+        //su funcion es guardar los datos en la base de datos
         Usuario::create([
             'nombre'=>$validator['nombre'],
             'email'=>$validator['email'],
