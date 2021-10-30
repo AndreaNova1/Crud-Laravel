@@ -6,7 +6,7 @@
 @section('content')
     <div  class="row justify-content-center">
         <div class="col-md-10">
-            
+
         <a href="/">
                         <br>
                         <img src="https://umgnaranjo.com/wp-content/uploads/2018/11/logo.png" width="100" height="100" class="rounded mx-auto d-block" alt="...">
@@ -58,6 +58,9 @@
 
         </div>
     </div>
-    
+
 @endsection
 </div>
+
+
+<!-- HOLA ES UNA PRUEBA -->
