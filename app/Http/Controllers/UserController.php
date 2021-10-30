@@ -42,7 +42,7 @@ class UserController extends Controller
             'rol'=> 'required|string'
         ]);
 
-        //almacenamos la fotografia
+        //almacenamos la fotografia en la carpeta indicada
         if($request->hasFile('foto')){
             $validator['foto']=$request->file('foto')->store('foto', 'public');
         }
@@ -59,9 +59,9 @@ class UserController extends Controller
 
     //Eliminar Usuarios
     public function delete($id){
-        $usuario = Usuario::findOrFail($id); /**para buscar todos los datos */
+        $usuario = Usuario::findOrFail($id);
 
-        /**para que borre en BD y en Codigo*/
+        //se usa para borrar los datos de manera general
         if (Storage::delete('public/'.$usuario->foto)){
 
             Usuario::destroy($id);
@@ -81,7 +81,7 @@ class UserController extends Controller
     public function edit(Request $request, $id){
         $dataUsuario = request()->except((['_token','_method']));
 
-        /**para editar las imagenes*/
+        //edita imagenes
         if($request->hasFile('foto')){
 
             $usuario = Usuario::findOrFail($id);
@@ -95,3 +95,4 @@ class UserController extends Controller
     }
 
 }
+

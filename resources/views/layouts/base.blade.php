@@ -47,7 +47,7 @@
             </ul>
             <li class="nav-link">
 
-                <a  href=" {{ url('/') }}" class="btn btn-outline-btn bg-info text-white" type="submit">Usuarios</a>
+                <a  href=" {{ url('/') }}" class="btn btn-outline-btn bg-info text-white" type="submit">Registro</a>
             </li>
         </ul>
     </div>
