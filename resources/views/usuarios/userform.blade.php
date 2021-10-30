@@ -47,30 +47,30 @@
 
                 <form action="{{ url ('save') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="card-header text-center p-3 mb-2 bg-info text-white">AGREGAR USUARIO</div>
+                    <div class="card-header text-center p-3 mb-2 bg-info text-white">AGREGAR USUARIO Al REGISTRO</div>
 
-                    <div class="card-body ">
-                        <div class="row form-group ">
-                            <label for="" class="col-2">Nombre</label>
-                            <input type="text" name="nombre" class="form-control col-md-9">
+                    <div class="card-body  ">
+                        <div class="row form-group  ">
+                            <label for="" class="col-2 ">Nombre</label>
+                            <input type="text" name="nombre" class="form-control col-md-9 border border-info">
                         </div>
 
                         <div class="row form-group">
                             <label for="" class="col-2">Email</label>
-                            <input type="text" name="email" class="form-control col-md-9">
+                            <input type="text" name="email" class="form-control col-md-9 border border-info">
                         </div>
 
                         <div class="row form-group">
                             <label for="" class="col-2" >Foto</label>
-                            <input type="file" name="foto" class="img-fluid">
+                            <input type="file" name="foto" class="img-fluid border">
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-6 offset-3">
+                        <div class="row ">
+                            <div class="col-8 offset-">
                                 <div class="form-group">
                                     <label>Rol</label>
-                                    <select name="rol" class="form-control" >
-                                        <option value="" required>--Seleccione--</option>
+                                    <select name="rol" class=" form-control   border border-info" >
+                                        <option value="" required>SELECCIONE EL ROL</option>
 
                                         @foreach( $rol as $roles)
                                             <option value="{{$roles->id_rol}}" required> {{$roles->descripcion}}  </option>
@@ -81,8 +81,8 @@
                         </div>
 
                         <div class="row form-group">
-                            <button type="submit" class="btn btn-success col-md-9 offset-2">Guardar</button>
-
+                            <button type="submit" class="btn btn-success col-md-3 offset-2">Guardar</button>
+                            <a  href=" {{ url('/') }}" class="btn bg-danger text-white col-md-3 offset-2" type="submit">Regresar</a>
                         </div>
 
                     </div>
