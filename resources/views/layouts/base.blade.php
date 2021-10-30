@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-p-3 mb-2 bg-info text-white">
+<nav class="navbar navbar-expand-lg bg-dark text-white">
     <a class="navbar-brand" href="#">
         <img src="https://umg.edu.gt/assets/umg.png" width="40" height="40" alt="">
     </a>
@@ -41,13 +41,13 @@
             </li>
             <ul class="navbar-nav">
                 <li class="nav-link">
-                    <a  href=" {{ url('/form') }}" class="btn btn-outline-btn btn-warning my-2 my-sm-0" type="submit">Formulario</a>
+                    <a  href=" {{ url('/form') }}" class="btn btn-outline-btn bg-info text-white" type="submit">Formulario</a>
                 </li>
 
             </ul>
             <li class="nav-link">
 
-                <a  href=" {{ url('/') }}" class="btn btn-outline-btn btn-warning my-2 my-sm-0" type="submit">Usuarios</a>
+                <a  href=" {{ url('/') }}" class="btn btn-outline-btn bg-info text-white" type="submit">Usuarios</a>
             </li>
         </ul>
     </div>
