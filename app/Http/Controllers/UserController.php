@@ -1,12 +1,12 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use App\Models\Rol;
 use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -38,13 +38,19 @@ class UserController extends Controller
         $validator = $this->validate($request, [
             'nombre'=> 'required|string|max:75',
             'email'=> 'required|string|max:45|email|unique:usuarios',
+            'foto'=>'required',
             'rol'=> 'required|string'
         ]);
 
+        //almacenamos la fotografia
+        if($request->hasFile('foto')){
+            $validator['foto']=$request->file('foto')->store('foto', 'public');
+        }
         //su funcion es guardar los datos en la base de datos
         Usuario::create([
             'nombre'=>$validator['nombre'],
             'email'=>$validator['email'],
+            'foto'=>$validator['foto'],
             'rol_id'=>$validator['rol']
         ]);
 
@@ -53,9 +59,15 @@ class UserController extends Controller
 
     //Eliminar Usuarios
     public function delete($id){
-        Usuario::destroy($id);
+        $usuario = Usuario::findOrFail($id); /**para buscar todos los datos */
 
-        return back()->with('usuarioEliminado', 'Usuario Eliminado');
+        /**para que borre en BD y en Codigo*/
+        if (Storage::delete('public/'.$usuario->foto)){
+
+            Usuario::destroy($id);
+        }
+
+        return back()->with('usuarioEliminado', 'Usuario eliminado');
     }
 
     //Formulario Editar Usuarios
@@ -68,7 +80,16 @@ class UserController extends Controller
 
     public function edit(Request $request, $id){
         $dataUsuario = request()->except((['_token','_method']));
-        Usuario::where('id', '=', $id)->update($dataUsuario);
+
+        /**para editar las imagenes*/
+        if($request->hasFile('foto')){
+
+            $usuario = Usuario::findOrFail($id);
+            Storage::delete('public/'.$usuario->foto);
+            $datosUsuario ['foto'] = $request-> file('foto')->store('foto','public');
+        };
+
+        Usuario::where('id', '=', $id)->update($datosUsuario);
 
         return back()->with('usuarioModificado','Usuario Modificado');
     }
