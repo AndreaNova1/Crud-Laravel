@@ -9,19 +9,19 @@
 
                 <a href="/">
                     <br>
-                    <img src="https://umgnaranjo.com/wp-content/uploads/2018/11/logo.png" width="100" height="100" class="rounded mx-auto d-block" alt="...">
+                    <img src="https://umgnaranjo.com/wp-content/uploads/2018/11/logo.png" width="100" height="95" class="rounded mx-auto d-block" alt="...">
                     <br>
                 </a>
                 <h2 class="text-center mb-5">Usuarios</h2>
-                <!-- Mensaje Flash -->
+                <!-- Seccion de alertas -->
                 @if(session('usuarioEliminado'))
                     <div class="alert alert-success">
                         {{session('usuarioEliminado')}}
                     </div>
                 @endif
-                <table class="table table-bordered table-striped text-center  ">
+                <table class="table table-bordered text-center">
                     <thead>
-                    <tr>
+                    <tr class="bg-info text-white">
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Foto</th>
@@ -33,12 +33,11 @@
                     @foreach($users as $user)
 
                         <tr>
-
                             <td>{{$user->nombre}}</td>
                             <td>{{$user->email}}</td>
                             <td class="border border-secondary" >
                                 <!--se utiliza para llamar a la foto-->
-                                <img src="{{ asset('storage').'/'.$user->foto}}" class="img-fluid img-thumbnail"  width="90px">
+                                <img src="{{ asset('storage').'/'.$user->foto}}" class="img-fluid img-thumbnail"  width="50px">
                             </td>
                             <td>{{$user->descripcion}}</td>
                             <td>
